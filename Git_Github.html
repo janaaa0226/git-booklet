@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Git & GitHub for Absolute Beginners</title>
+<style>
+:root{--bg:#faf8f4;--fg:#1f2430;--muted:#5d6472;--card:#fff;--line:#e4dfd5;--accent:#e2572b;--code:#161a23;--codefg:#e8eaf0;--tip:#e8f4ec;--warn:#fdf0e0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171f;--fg:#eceef3;--muted:#a0a7b6;--card:#1d212c;--line:#2d3342;--accent:#ff7a4d;--code:#0b0d12;--tip:#1b2b22;--warn:#33281a}}
+:root[data-theme="dark"]{--bg:#14171f;--fg:#eceef3;--muted:#a0a7b6;--card:#1d212c;--line:#2d3342;--accent:#ff7a4d;--code:#0b0d12;--tip:#1b2b22;--warn:#33281a}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:720px;margin:0 auto;padding:24px 20px 60px}
+h1,h2,h3,.tag{font-family:"Trebuchet MS",system-ui,sans-serif}
+.cover{padding:48px 0 32px;border-bottom:3px solid var(--accent)}
+.cover h1{font-size:2.5rem;line-height:1.1;margin:0 0 12px}
+.cover p{color:var(--muted);margin:0}
+.tag{display:inline-block;background:var(--accent);color:#fff;padding:2px 10px;border-radius:99px;font-size:.8rem;margin-bottom:14px}
+nav{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 20px;margin:28px 0}
+nav ol{margin:6px 0 0;padding-left:22px;columns:2;font-family:system-ui,sans-serif;font-size:.95rem}
+nav a{color:var(--fg);text-decoration:none}
+h2{font-size:1.7rem;margin:52px 0 8px;padding-top:8px}
+h2 span{color:var(--accent)}
+h3{font-size:1.15rem;margin:26px 0 4px}
+pre{background:var(--code);color:var(--codefg);padding:14px 16px;border-radius:10px;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:var(--card);border:1px solid var(--line);padding:1px 5px;border-radius:5px}
+pre code{background:none;border:0;padding:0}
+.box{padding:12px 16px;border-radius:10px;margin:16px 0;font-size:.95rem}
+.tip{background:var(--tip)}.warn{background:var(--warn)}
+.box b:first-child{font-family:system-ui,sans-serif}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem;font-family:system-ui,sans-serif}
+th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px 10px;vertical-align:top}
+th{color:var(--muted)}
+.flow{display:flex;gap:6px;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:.85rem;margin:14px 0}
+.flow div{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center}
+.flow b{display:block;color:var(--accent)}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem;text-align:center;font-family:system-ui,sans-serif}
+</style>
+</head>
+<body>
+<main>
+<header class="cover">
+<span class="tag">STUDENT BOOKLET</span>
+<h1>Git & GitHub for Absolute Beginners</h1>
+<p>No experience needed. Plain words, small steps, real commands.</p>
+</header>
+
+<nav><b style="font-family:system-ui,sans-serif">Contents</b>
+<ol>
+<li><a href="#c1">What is Git?</a></li>
+<li><a href="#c2">Git vs GitHub</a></li>
+<li><a href="#c3">Setup</a></li>
+<li><a href="#c4">Key ideas</a></li>
+<li><a href="#c5">Your first repo</a></li>
+<li><a href="#c6">Branches</a></li>
+<li><a href="#c7">Using GitHub</a></li>
+<li><a href="#c8">Pull requests</a></li>
+<li><a href="#c9">Merge conflicts</a></li>
+<li><a href="#c10">Undoing mistakes</a></li>
+<li><a href="#c11">Cheat sheet</a></li>
+<li><a href="#c12">Glossary</a></li>
+</ol></nav>
+
+<h2 id="c1"><span>1.</span> What is Git?</h2>
+<p>Imagine writing an essay. You save <code>essay.docx</code>, then <code>essay_final.docx</code>, then <code>essay_final_REALLY_final.docx</code>. Messy, right?</p>
+<p><b>Git is a tool that remembers every version of your files</b> for you. It works like a video game with unlimited save points: you can go back to any earlier save, see what changed, and see who changed it.</p>
+<p>Git is free, runs on your own computer, and works with any kind of text file (code, notes, web pages).</p>
+<h3>Why students should care</h3>
+<ul>
+<li><b>Safety:</b> break something? Go back to a working version.</li>
+<li><b>Teamwork:</b> many people can work on one project without overwriting each other.</li>
+<li><b>Portfolio:</b> employers look at your GitHub profile.</li>
+<li><b>Everyone uses it:</b> it is standard in almost every software job.</li>
+</ul>
+
+<h2 id="c2"><span>2.</span> Git vs GitHub</h2>
+<p>These are two different things, and beginners often mix them up.</p>
+<div class="wrap"><table>
+<tr><th></th><th>Git</th><th>GitHub</th></tr>
+<tr><td>What</td><td>A program on your computer</td><td>A website</td></tr>
+<tr><td>Job</td><td>Tracks changes to files</td><td>Stores your projects online and helps people collaborate</td></tr>
+<tr><td>Needs internet?</td><td>No</td><td>Yes</td></tr>
+<tr><td>Analogy</td><td>Microsoft Word's "track changes"</td><td>Google Drive, where you share the file</td></tr>
+</table></div>
+<p>Similar websites exist too, such as GitLab and Bitbucket. They all use Git underneath.</p>
+
+<h2 id="c3"><span>3.</span> Setup</h2>
+<h3>Step 1: Install Git</h3>
+<ul>
+<li><b>Windows:</b> download from <code>git-scm.com</code> and click Next through the installer. You get "Git Bash", a terminal to type commands in.</li>
+<li><b>Mac:</b> open Terminal and type <code>git --version</code>. It offers to install if missing.</li>
+<li><b>Linux:</b> <code>sudo apt install git</code></li>
+</ul>
+<p>Check it worked:</p>
+<pre><code>git --version</code></pre>
+<h3>Step 2: Tell Git who you are</h3>
+<p>Do this once. Your name is attached to every save you make.</p>
+<pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+<h3>Step 3: Make a GitHub account</h3>
+<p>Go to <code>github.com</code>, sign up, and use the same email as above. Choose a professional username, since it becomes your public profile.</p>
+
+<h2 id="c4"><span>4.</span> Key ideas</h2>
+<dl>
+<dt><b>Repository (repo)</b></dt><dd>A project folder that Git is watching, including its whole history.</dd>
+<dt><b>Commit</b></dt><dd>A save point. A snapshot of your files with a short message like "Add login page".</dd>
+<dt><b>Staging area</b></dt><dd>A waiting room. You pick which changes go into the next commit.</dd>
+<dt><b>Branch</b></dt><dd>A separate line of work, so you can experiment without touching the main version.</dd>
+<dt><b>Remote</b></dt><dd>A copy of your repo stored somewhere else, usually GitHub.</dd>
+</dl>
+<h3>The three places your files live</h3>
+<div class="flow">
+<div><b>Working folder</b>where you edit files</div>
+<div><b>Staging area</b>changes you chose to save</div>
+<div><b>Repository</b>saved commits (history)</div>
+</div>
+<p>Moving between them: <code>git add</code> moves changes to staging. <code>git commit</code> moves them into history.</p>
+
+<h2 id="c5"><span>5.</span> Your first repo</h2>
+<p>Follow along in your terminal.</p>
+<pre><code>mkdir my-project      # make a folder
+cd my-project         # go inside it
+git init              # start tracking it</code></pre>
+<p>Create a file called <code>hello.txt</code> with any text, then:</p>
+<pre><code>git status            # what has changed?
+git add hello.txt     # put it in staging
+git commit -m "Add hello file"   # save it
+git log --oneline     # see your history</code></pre>
+<p>That is the core loop. Edit, then <b>status, add, commit</b>, and repeat.</p>
+<div class="box tip"><b>Tip:</b> use <code>git add .</code> to stage every changed file at once. Write commit messages that say what you did: "Fix typo in header", not "stuff".</div>
+<h3>Ignoring files</h3>
+<p>Some files should never be tracked (passwords, temporary files). Create a file named <code>.gitignore</code> and list them, one per line:</p>
+<pre><code>.env
+node_modules/
+*.log</code></pre>
+
+<h2 id="c6"><span>6.</span> Branches</h2>
+<p>Think of a tree. The trunk is your stable project (usually called <code>main</code>). A branch is a side path where you try something new. If it works, you join it back to the trunk. If not, you throw it away.</p>
+<pre><code>git branch                  # list branches
+git switch -c new-feature   # create and move to a new branch
+# ...edit files, add, commit...
+git switch main             # go back to main
+git merge new-feature       # bring the changes into main
+git branch -d new-feature   # delete the finished branch</code></pre>
+<div class="box tip"><b>Rule of thumb:</b> never work directly on <code>main</code> in a team. Make a branch for each task.</div>
+
+<h2 id="c7"><span>7.</span> Using GitHub</h2>
+<h3>Send your project to GitHub</h3>
+<ol>
+<li>On GitHub, click <b>New repository</b>, give it a name, and create it.</li>
+<li>Copy the URL GitHub shows you, then run:</li>
+</ol>
+<pre><code>git remote add origin https://github.com/YOU/my-project.git
+git branch -M main
+git push -u origin main</code></pre>
+<p><b>Push</b> means upload your commits. After the first time, just type <code>git push</code>.</p>
+<h3>Get a project from GitHub</h3>
+<pre><code>git clone https://github.com/USER/project.git</code></pre>
+<p><b>Clone</b> downloads a full copy, history included.</p>
+<h3>Stay up to date</h3>
+<pre><code>git pull      # download and merge new changes from GitHub</code></pre>
+<div class="wrap"><table>
+<tr><th>Command</th><th>Direction</th></tr>
+<tr><td><code>git push</code></td><td>your computer → GitHub</td></tr>
+<tr><td><code>git pull</code></td><td>GitHub → your computer</td></tr>
+<tr><td><code>git clone</code></td><td>GitHub → new folder on your computer (first time)</td></tr>
+</table></div>
+<div class="box warn"><b>Login:</b> GitHub no longer accepts your account password on the command line. Use GitHub Desktop, the GitHub CLI (<code>gh auth login</code>), or a personal access token when asked.</div>
+
+<h2 id="c8"><span>8.</span> Pull requests</h2>
+<p>A <b>pull request (PR)</b> says: "I made changes on my branch. Please review them and add them to the main project."</p>
+<ol>
+<li>Create a branch, commit your work, and <code>git push -u origin your-branch</code>.</li>
+<li>On GitHub, click the <b>Compare & pull request</b> button.</li>
+<li>Write a short title and description of what you changed.</li>
+<li>Teammates comment and approve.</li>
+<li>Click <b>Merge pull request</b>.</li>
+</ol>
+<h3>Contributing to someone else's project</h3>
+<p>Click <b>Fork</b> to copy their repo into your account. Clone your fork, make changes on a branch, push, then open a pull request to the original. This is how open-source works.</p>
+
+<h2 id="c9"><span>9.</span> Merge conflicts</h2>
+<p>A conflict happens when two people change the same line. Git can't decide who is right, so it asks you. Don't panic, it is normal.</p>
+<p>Git marks the file like this:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+your version of the line
+=======
+their version of the line
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; other-branch</code></pre>
+<p><b>To fix it:</b></p>
+<ol>
+<li>Open the file and decide what the final text should be.</li>
+<li>Delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> lines.</li>
+<li>Run <code>git add file.txt</code> then <code>git commit</code>.</li>
+</ol>
+
+<h2 id="c10"><span>10.</span> Undoing mistakes</h2>
+<div class="wrap"><table>
+<tr><th>Problem</th><th>Fix</th></tr>
+<tr><td>Staged the wrong file</td><td><code>git restore --staged file</code></td></tr>
+<tr><td>Want to throw away edits to a file</td><td><code>git restore file</code> (permanent!)</td></tr>
+<tr><td>Typo in your last commit message</td><td><code>git commit --amend -m "New message"</code></td></tr>
+<tr><td>Undo a commit safely (keeps history)</td><td><code>git revert COMMIT_ID</code></td></tr>
+<tr><td>Want to see what changed</td><td><code>git diff</code></td></tr>
+</table></div>
+<div class="box warn"><b>Careful:</b> avoid <code>git reset --hard</code> and <code>git push --force</code> until you fully understand them. They can destroy work.</div>
+
+<h2 id="c11"><span>11.</span> Cheat sheet</h2>
+<div class="wrap"><table>
+<tr><th>Command</th><th>What it does</th></tr>
+<tr><td><code>git init</code></td><td>Start a new repo</td></tr>
+<tr><td><code>git clone URL</code></td><td>Download a repo</td></tr>
+<tr><td><code>git status</code></td><td>See what changed</td></tr>
+<tr><td><code>git add .</code></td><td>Stage all changes</td></tr>
+<tr><td><code>git commit -m "msg"</code></td><td>Save a snapshot</td></tr>
+<tr><td><code>git log --oneline</code></td><td>Show history</td></tr>
+<tr><td><code>git switch -c name</code></td><td>New branch</td></tr>
+<tr><td><code>git switch name</code></td><td>Change branch</td></tr>
+<tr><td><code>git merge name</code></td><td>Combine a branch into the current one</td></tr>
+<tr><td><code>git push</code></td><td>Upload commits</td></tr>
+<tr><td><code>git pull</code></td><td>Download new commits</td></tr>
+<tr><td><code>git diff</code></td><td>Show exact changes</td></tr>
+</table></div>
+<h3>Daily routine</h3>
+<ol>
+<li><code>git pull</code> to get the latest.</li>
+<li>Make a branch and do your work.</li>
+<li><code>git add .</code> then <code>git commit -m "..."</code>, often.</li>
+<li><code>git push</code>, then open a pull request.</li>
+</ol>
+
+<h2 id="c12"><span>12.</span> Glossary</h2>
+<div class="wrap"><table>
+<tr><td><b>main</b></td><td>The default branch, the "official" version.</td></tr>
+<tr><td><b>origin</b></td><td>Nickname for your GitHub remote.</td></tr>
+<tr><td><b>HEAD</b></td><td>Where you are right now in the history.</td></tr>
+<tr><td><b>Fork</b></td><td>Your own copy of someone else's GitHub repo.</td></tr>
+<tr><td><b>README</b></td><td>The file that explains a project. Shown on the repo's front page.</td></tr>
+<tr><td><b>Merge</b></td><td>Combining two branches.</td></tr>
+<tr><td><b>Conflict</b></td><td>Two changes to the same spot that Git can't combine alone.</td></tr>
+<tr><td><b>Issue</b></td><td>A GitHub ticket for bugs and ideas.</td></tr>
+</table></div>
+<div class="box tip"><b>Practice challenge:</b> create a repo, add a README, make a branch, change the README, push, and open a pull request to yourself. Do it once and you know 90% of what you need.</div>
+
+<footer>Keep it simple. Commit early, commit often.</footer>
+</main>
+</body>
+</html>
