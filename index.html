@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Git & GitHub for Absolute Beginners: a mini-course</title>
+<title>Git & GitHub for Beginners: a mini-course</title>
 <style>
 :root{--bg:#fbfaf7;--side:#f4f2ec;--fg:#23262d;--mut:#666b76;--line:#e2ded4;--acc:#a8401f;--code:#f0eee8;--note:#f4f2ec;--ok:#2f6b4a}
 @media(prefers-color-scheme:dark){:root{--bg:#17191e;--side:#1d2027;--fg:#e8e9ed;--mut:#9ba0ac;--line:#2e323c;--acc:#f0895f;--code:#0f1115;--note:#1f232b;--ok:#6fcf9a}}
@@ -11,24 +11,24 @@
 html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:var(--acc)}:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-header{position:sticky;top:0;z-index:5;display:flex;gap:12px;align-items:center;padding:10px 18px;background:var(--bg);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;height:53px;display:flex;gap:14px;align-items:center;padding:0 18px;background:var(--bg);border-bottom:1px solid var(--line)}
 header b{font-family:Georgia,serif}
 #menu{display:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:6px;padding:6px 10px;font:inherit;cursor:pointer}
-#q{margin-left:auto;width:220px;max-width:40%;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--side);color:var(--fg);font:inherit;font-size:.9rem}
 .wrap{display:flex}
 aside{width:280px;flex:none;position:sticky;top:53px;height:calc(100vh - 53px);overflow:auto;background:var(--side);border-right:1px solid var(--line);padding:14px 10px}
 aside a{display:block;padding:4px 12px;color:var(--mut);text-decoration:none;font-size:.9rem;border-left:3px solid transparent}
 aside a:hover{color:var(--fg)}aside a.on{color:var(--fg);border-left-color:var(--acc);font-weight:600;background:var(--bg)}
 aside h4{margin:14px 12px 4px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut)}
 main{flex:1;min-width:0;max-width:760px;padding:10px 32px 80px;margin:0 auto}
-section{padding:30px 0;border-bottom:1px solid var(--line)}
+.hero{padding:28px 0 32px;border-bottom:1px solid var(--line)}.hero h1{margin-top:8px}.hero p{max-width:60ch}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
 h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
 h1{font-size:2.3rem;margin:36px 0 10px}h2{font-size:1.7rem;margin:0 0 8px}
 h2 i{font-style:normal;color:var(--acc);font-size:.78rem;display:block;letter-spacing:.07em;font-family:system-ui,sans-serif;text-transform:uppercase}
 h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin:24px 0 4px}
 code{font:.88em ui-monospace,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:4px}
 .cb{margin:12px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--code)}
-.cb div{display:flex;justify-content:space-between;align-items:center;padding:3px 10px;font-size:.75rem;color:var(--mut);border-bottom:1px solid var(--line)}
+.cb>div{display:flex;justify-content:space-between;align-items:center;padding:3px 10px;font-size:.75rem;color:var(--mut);border-bottom:1px solid var(--line)}
 .cb button{background:none;border:0;color:var(--acc);font:inherit;font-weight:600;cursor:pointer;padding:3px 6px}
 pre{margin:0;padding:12px 14px;overflow-x:auto;font:14px/1.55 ui-monospace,Menlo,Consolas,monospace}
 .n{margin:16px 0;padding:10px 14px;border-left:4px solid var(--line);background:var(--note);border-radius:0 8px 8px 0;font-size:.96rem}
@@ -44,14 +44,16 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:1
 </style>
 </head>
 <body>
-<header><button id="menu" aria-label="Open contents">☰ Lessons</button><b>Git & GitHub for Beginners</b><input id="q" type="search" placeholder="Search lessons…" aria-label="Search"></header>
+<header><button id="menu" aria-label="Open contents">☰ Lessons</button><b>Git & GitHub for Beginners</b></header>
 <div class="wrap">
 <aside id="nav" aria-label="Lessons"></aside>
 <main>
+<div class="hero" id="top">
 <h1>Git & GitHub for Beginners</h1>
 <p>A mini-course that starts from zero. You will build one small project, <b>MyFirstGitProject</b>, and use it in every lesson, so each step connects to the last. Nothing here can break your computer, and every command is explained before you run it.</p>
 <p><b>Start Here:</b> just go through the lessons in order. Each one tells you what something is, why you need it, what to type, what you should see, and what to do if it goes wrong.</p>
 <a class="btn" href="#problem">Start Lesson 1 →</a>
+</div>
 
 <section id="problem" data-p="Part 1: Understand" data-t="The problem Git solves">
 <h2>The problem Git solves</h2>
@@ -373,19 +375,18 @@ secs.forEach(function(s,i){var lesson=!/Reference/.test(s.dataset.p);if(lesson)n
  var e=document.createElement('i');e.textContent=(lesson?'Lesson '+n+' · ':'')+s.dataset.p;s.querySelector('h2').prepend(e);
  var p=secs[i-1],x=secs[i+1],d=document.createElement('div');d.className='pn';
  d.innerHTML=(p?'<a href="#'+p.id+'">← '+p.dataset.t+'</a>':'<span></span>')+(x?'<a href="#'+x.id+'">'+x.dataset.t+' →</a>':'<span></span>');s.appendChild(d)});
-nav.innerHTML=h;
+nav.innerHTML='<a href="#top">Introduction</a>'+h;
 document.querySelectorAll('.cb').forEach(function(b){
  var hd=b.firstElementChild,pre=b.querySelector('pre'),out=/^(Output|Example output)/.test(hd.textContent);
  hd.innerHTML='<span>'+hd.textContent+'</span>';if(out)return;
  var btn=document.createElement('button');btn.textContent='Copy';
  btn.onclick=function(){navigator.clipboard.writeText(pre.textContent.replace(/\s+#.*$/gm,'')).then(function(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy'},1500)})};
  hd.appendChild(btn)});
-var links=[].slice.call(nav.querySelectorAll('a'));
+var links=[].slice.call(nav.querySelectorAll('a')).slice(1);
 var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.hash=='#'+x.target.id)})})},{rootMargin:'-20% 0px -70% 0px'});
 secs.forEach(function(s){io.observe(s)});
 document.getElementById('menu').onclick=function(){nav.classList.toggle('open')};
 nav.onclick=function(e){if(e.target.tagName=='A')nav.classList.remove('open')};
-document.getElementById('q').oninput=function(){var v=this.value.toLowerCase();links.forEach(function(a,i){a.style.display=!v||secs[i].textContent.toLowerCase().indexOf(v)>-1?'':'none'})};
 </script>
 </body>
 </html>
